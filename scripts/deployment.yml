@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: book-catalog
-        image: bmdk1.azurecr.io/book-catalog:1
+        image: sit722week11.azurecr.io/book-catalog:1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -33,8 +33,9 @@ spec:
     app: book-catalog
   type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 4001
+    - protocol: TCP
+      port: 80
+      targetPort: 80
 
 
 ---
@@ -55,7 +56,7 @@ spec:
     spec:
       containers: 
       - name: inventory-management
-        image: bmdk1.azurecr.io/inventory_management:1
+        image: sit722week11.azurecr.io/inventory-management:1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -73,6 +74,7 @@ spec:
     app: inventory-management
   type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 4002
+    - protocol: TCP
+      port: 80
+      targetPort: 80
  
